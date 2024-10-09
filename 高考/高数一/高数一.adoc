@@ -18,9 +18,6 @@
 . latexmath:[\log_b{b}=1\to\ln{e}=1]
 
 === 常见的公式
-* 分式
-** stem:[a^-n=1/a^n]
-** latexmath:[\sqrt[n\]{x^m}=x^{\frac{m}{n}}]
 * stem:[a^2-b^2=(a+b)(a-b)]
 * stem:[a^2\pm2ab+b^2=(a+b)^2]
 * stem:[a^3-b^3=(a-b)(a^2+ab+b^2)]
@@ -37,6 +34,15 @@
 ** stem:[\cotx=\frac{\cosx}{\sinx}]
 ** stem:[\secx=\frac{1}{\cosx}]
 ** stem:[\cscx=\frac{1}{\sinx}]
+* 指数
+** stem:[a^0=1(a\ne0)]
+** stem:[a^-n=1/a^n(a\ne0)]
+** latexmath:[a^{m/n}=\sqrt[n\]{m}]
+** stem:[a^m\timesa^n=a^{m+n}]
+** stem:[a^m/a^n=a^{m-n}(a\ne0)]
+** stem:[(a^m)^n=a^{m\timesn}]
+** stem:[(ab)^n=a^n\timesb^n]
+** stem:[(a/b)^n=a^n/b^n(b\ne0)]
 * 对数
 ** 对数的换底公式: stem:[\log_b a = \frac{\log_k a}{\log_k b}]，其中，\(k\) 是任意正数（通常取10或e）。
 ** 对数的乘法法则: stem:[\log_b(x\cdoty)=\log_bx+\log_by]
@@ -148,14 +154,21 @@ stem:[\lim_{x \to 0}\frac{a}{b}=\infty]
 ==== 定义
 * 水平渐近线:
 +
-stem:[x\to+\infty或-\infty]，stem:[y\toc]，stem:[y=c] 就是 stem:[f(x)] 的水平渐近线
-* 铅直(垂直)渐近线:
+若 stem:[\lim_{x\to\infty}f(x)=b]，则 stem:[y=f(x)] 有水平渐近线 stem:[y=b]
+* 垂直(铅直)渐近线:
 +
-stem:[x\toa]时，stem:[y\to+\infty或-\infty]，stem:[x=a] 就是 stem:[f(x)] 的铅直渐近线
+若 stem:[\lim_{x\toa}=\infty]，则 stem:[y=f(x)] 有垂直(铅直)渐近线 stem:[x=a]
+* 斜渐近线:
++
+stem:[\lim_{x\to\infty}f(x)/x=a] 若 stem:[a\ne0]，则 stem:[y=f(x)] 有斜渐近线 stem:[y=ax+b(b=\lim_{x\to\infty}[f(x)-ax\])]
 
 ==== 解法
-* 水平渐近线: 求极限 stem:[\lim_{x\to\infty}]，一般用分子分母同时除以 x 的最高项即可得
-* 铅直(垂直)渐近线: 分母=0 时 `x` 的值
+. 水平渐近线: 先通过 stem:[x\to\pm\infty] 时是否存在权限，来判断是否存在水平渐近线
+** 一般用分子分母同时除以 x 的最高项即可得(注意: 如果分母算得 `0`，可判断无水平渐近线)
+. 铅直(垂直)渐近线: 再通过 stem:[x\tox_0^+] 或 stem:[x\tox_0^-] 时是否权限为无穷(该 stem:[x_0] 为无定义点或其它符合间断点定义的点)，来判断是否存在垂直(铅直)渐近线
+** 一般判断分母是否可以等于 `0`，分母=0 时 `x` 的值为垂直(铅直)渐近线
+. 斜渐近线
+**
 
 === 函数的连续性
 ==== 间断点
@@ -302,3 +315,71 @@ stem:[\lim_{x \to x_0}\frac{f(x)}{g(x)}=\lim_{x \to x_0}\frac{f'(x)}{g'(x)}=\fra
 * stem:[\int1/\sqrt{1-x^2}dx=\arcsinx+C]
 
 === 其它公式
+
+== 向量
+=== 基本概念
+==== 向量的定义
+既有大小又有方向的量称为向量
+
+* 以 A 为起点，B 为终点的有向线段所表示的向量记作 latexmath:[\vec{AB}]
+* 类似物理中的矢量，而物理中的标量则是只有大小，没有方向
+* 若两个向量 stem:[\veca] 与 stem:[\vecb] 大小相等，且方向相同，则 stem:[\veca=\vecb]
+
+==== 向量的模
+向量的大小叫做向量的模
+
+* latexmath:[\vec{AB}] 的模记作 latexmath:[|\vec{AB}|]，stem:[\veca] 记作 stem:[|\veca|]
+
+==== 单位向量
+模等于 1 的向量，记作 stem:[\vec{a^\circ}]，公式: stem:[\vec{a^\circ}=\veca/|\veca|]
+
+==== 负向量
+与向量 stem:[\veca] 的模相等而方向相反的向量
+
+==== 零向量
+模等于 0 的向量(零向量的方向是任意的)
+
+=== 向量的夹角
+设两个非零向量 stem:[\veca] 与 stem:[\vecb]，任取空间一点 `O`，作 latexmath:[\vec{OA}=\vec{a},\vec{OB}=\vec{b}]，则称 stem:[\angle\phi=\angleAOB] 为 stem:[\veca] 与 stem:[\vecb] 的夹角，记作 stem:[<\veca,\vecb> =\phi(0<=\phi<=\pi)]
+
+* 若 stem:[<\veca,\vecb> =] `0` 或 `𝜋`，则称向量 stem:[\veca 与 \vecb] 平行或共线，记作 stem:[\veca////\vecb]
+* 若 stem:[<\veca,\vecb> =\pi/2]，则称向量 stem:[\veca 与 \vecb] 垂直，记作 latexmath:[\vec{a}\perp\vec{b}]
+
+=== 向量的表示方法
+* 在空间取定一点 `O` 和三个两两垂直的单位向量 stem:[\veci,\vecj,\veck]，就确定了三条都以 `O` 为原点的两两垂直的数轴，依次记为 `x` 轴、`y` 轴、`z` 轴，它们构成一个空间直角坐标系，称为 stem:[O_{xyz}] 坐标系
+* 若 `x`、`y`、`z` 分别是向量 stem:[\veca] (起点为 `O`)在 `x` 轴、`y` 轴、`z` 轴上的投影，则向量 stem:[\veca=x\veci+y\vecj+z\veck=(x,y,z)]
+* 向量坐标可用小括号，也可用大括号
+
+=== 向量的模长
+stem:[|\veca|=\sqrt{x^2+y^2+z^2}]
+
+=== 空间中两点间的距离
+设点 stem:[M_1(x_1,y_1,z_1)] 与点 stem:[M_2(x_2,y_2,z_2)]，其间距离: stem:[|M_1M_2|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}]
+
+=== 两点构成的向量
+由点 stem:[M(a_1,b_1,c_1)] 与点 stem:[N(a_2,b_2,c_2)] 构成的向量: latexmath:[\vec{MN}=(a_2-a_1,b_2-b_1,c_2-c_1)]
+
+=== 单位向量
+. 单位向量: 模长为 `1` 的向量
+. 计算公式: stem:[\vec{a^\circ}=\veca/|\veca|]
+. 平行公式: stem:[\vec{a^\circ}=\pm\veca/|\veca|](负号是因为有可能为反向，也是平行的)
+
+=== 向量的线性运算
+设 stem:[\veca=(a_x,a_y,a_z)]，stem:[\vecb=(b_x,b_y,b_z)]
+
+. stem:[\veca+\vecb=(a_x+b_x,a_y+b_y,a_z+b_z)]
+. stem:[\veca-\vecb=(a_x-b_x,a_y-b_y,a_z-b_z)]
+. stem:[\lambda\veca=(\lambdaa_x,\lambdaa_y,\lambdaa_z)]
+. stem:[\lambda(\mu\veca)=\mu(\lambda\veca)=(\lambda\mu)\veca]
+. stem:[(\lambda+\mu)\veca=\lambda\veca+\mu\veca]
+. stem:[\lambda(\veca+\vecb)=\lambda\veca+\lambda\vecb]
+
+=== 方向余弦
+设 stem:[\veca=a_1\veci+a_2\vecj+a_3\veck]，当 stem:[\veca\ne\vec0] 时，与 stem:[\veca] 同方向的单位向量:
+
+stem:[\vec{a^\circ}=\veca/|veca|=\frac{(a_1\veci+a_2\vecj+a_3\veck)}{|\veca|}=a_1/|\veca|\veci+a_2/|\veca|\vecj+a_3/|\veca|\veck]
+
+而 stem:[a_1/|veca|=\cos\alpha]，stem:[a_2/|veca|=\cos\beta]，stem:[a_3/|veca|=\cos\gamma]
+
+所以 stem:[\vec{a^\circ}=\cos\alpha\veci+\cos\beta\vecj+\cos\gamma\veck]，且 stem:[\cos^2\alpha+\cos\^2beta+\cos^2\gamma=1]
+
