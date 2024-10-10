@@ -14,16 +14,16 @@
 . latexmath:[\sin{0}=0]
 . latexmath:[\cos{0}=1]
 . latexmath:[e^0=1]
-. latexmath:[\log_b{1}=0\to\ln{1}=0]
-. latexmath:[\log_b{b}=1\to\ln{e}=1]
+. latexmath:[\log_b{1}=0\Rightarrow\ln{1}=0]
+. latexmath:[\log_b{b}=1\Rightarrow\ln{e}=1]
 
 === 常见的公式
 * stem:[a^2-b^2=(a+b)(a-b)]
 * stem:[a^2\pm2ab+b^2=(a+b)^2]
 * stem:[a^3-b^3=(a-b)(a^2+ab+b^2)]
-* stem:[ax^2+bx+c=0\tox=\frac{-b\pm\sqrt{b^2-4ac}}{2a}]
-** 如果 stem:[b=0]: stem:[ax^2+c=0\toax^2=-c\tox^2=-c/a\tox=\pm\sqrt{-c/a}]
-** 如果 stem:[c=0]: stem:[ax^2+bx=0\to(ax+b)\cdotx=0\tox=-b/a或x=0]
+* stem:[ax^2+bx+c=0\Rightarrowx=\frac{-b\pm\sqrt{b^2-4ac}}{2a}]
+** 如果 stem:[b=0]: stem:[ax^2+c=0\Rightarrowax^2=-c\Rightarrowx^2=-c/a\Rightarrowx=\pm\sqrt{-c/a}]
+** 如果 stem:[c=0]: stem:[ax^2+bx=0\Rightarrow(ax+b)\cdotx=0\Rightarrowx=-b/a或x=0]
 * stem:[ax^2+bx+c>=0]
 .. 当成一元二次方程求出 stem:[x_1,x_2]
 ... 注意 `a` 如果不为正数要换算成正数，也就是两边同乘以 `-1`，换算时注意要改变大于小于号
@@ -375,11 +375,105 @@ stem:[|\veca|=\sqrt{x^2+y^2+z^2}]
 . stem:[\lambda(\veca+\vecb)=\lambda\veca+\lambda\vecb]
 
 === 方向余弦
+==== 计算过程
 设 stem:[\veca=a_1\veci+a_2\vecj+a_3\veck]，当 stem:[\veca\ne\vec0] 时，与 stem:[\veca] 同方向的单位向量:
 
 stem:[\vec{a^\circ}=\veca/|veca|=\frac{(a_1\veci+a_2\vecj+a_3\veck)}{|\veca|}=a_1/|\veca|\veci+a_2/|\veca|\vecj+a_3/|\veca|\veck]
 
-而 stem:[a_1/|veca|=\cos\alpha]，stem:[a_2/|veca|=\cos\beta]，stem:[a_3/|veca|=\cos\gamma]
+设 \[
+\left\{\begin{matrix}
+  \alpha: & \vec{a}与 x 轴方向的夹角 \\
+  \beta: & \vec{a}与 y 轴方向的夹角\\
+  \gamma: & \vec{a}与 z 轴方向的夹角
+\end{matrix}\right.
+\]
+
+得 stem:[a_1/|veca|=\cos\alpha]，stem:[a_2/|veca|=\cos\beta]，stem:[a_3/|veca|=\cos\gamma]
 
 所以 stem:[\vec{a^\circ}=\cos\alpha\veci+\cos\beta\vecj+\cos\gamma\veck]，且 stem:[\cos^2\alpha+\cos\^2beta+\cos^2\gamma=1]
 
+==== 注意条件
+. 向量角 stem:[\alpha,\beta,\gamma\in[0,\pi\]]
+. stem:[\cos^2\alpha+\cos\^2beta+\cos^2\gamma=1]
+
+=== 数量积
+==== 定义
+设 stem:[\veca 与 \vecb] 的夹角为 stem:[\theta]，则称 stem:[\vec{a}\cdot\vec{b}=|\veca||vecb|\cos\theta] 为 stem:[\veca 与 \vecb] 的数量积(也叫点积、内积、标量积)
+
+==== 性质
+. stem:[\veca\cdot\veca=|\veca|^2\Rightarrow|\veca|=\sqrt{\veca\cdot\veca}]
+. 设 stem:[\veca,\vecb] 为两个非零向量，则 stem:[\veca\cdot\vecb=0\Leftrightarrow\veca\bot\vecb]
+
+==== 运算
+. 交换律: stem:[\veca\cdot\vecb=\vecb\cdot\veca]
+. 结合律:
+.. stem:[(\lambda\veca)\cdot\vecb=\veca\cdot(\lambda\vecb)=\lambda(\veca\cdot\vecb)]
+.. stem:[(\lambda\veca)(\mu\vecb)=\lambda\mu(\veca\cdot\vecb)]
+. 分配律: stem:[(\veca+\vecb)\cdot\vecc=\veca\cdot\vecc+\vecb\cdot\vecc]
+
+==== 坐标表示
+设 stem:[\veca=(a_x,a_y,a_z),\vecb=(b_x,b_y,b_z)]，则 stem:[\veca\cdot\vecb=a_xb_x+a_yb_y+a_zb_z]
+
+=== 向量积
+==== 定义
+两向量 stem:[\veca与\vecb] 的向量积是一个向量 stem:[\vecc]，记为 stem:[\vecc=\veca\times\vecb]，且满足:
+
+. stem:[\vecc] 的模: stem:[|\vecc|=|\veca||\vecb|\sin<\veca,\vecb>]
+. stem:[\vecc] 的方向: 垂直于 stem:[\veca和\vecb] 所确定的平面(stem:[\veca与\vecb] 是不共线的非零向量)，即 latexmath:[\vec{c}\perp\vec{a},\vec{c}\perp\vec{b}]，且符合右手法则
++
+[NOTE]
+====
+右手法则是指伸展右手，四指按从 stem:[\veca] 的方向转过角度 stem:[<\veca,\vecb>] 与 stem:[\vecb] 的方向重合的旋转方向握拳，大拇指的方向即为 stem:[\vecc] 的方向 image:6.11.1.向量积.jpeg[]
+====
+. 向量积的结果是一个法向量
+
+==== 向量积的几何意义
+stem:[|\vecc|=|\veca\times\vecb|=|\veca||\vecb|\sin\theta =>] 向量积的模是以 stem:[\veca与\vecb] 为邻边的平行四边形的面积
+
+==== 性质
+. stem:[\veca\times\veca=\vec0]
+. stem:[\veca\times\vecb=\vec0 <=> \veca //// \vecb]
+
+==== 运算
+. 交换律: stem:[\veca\times\vecb=-\vecb\times\veca] (注意负号)
+. 分配律: stem:[(\veca+\vecb)\times\vecc=\veca\times\vecc+\vecb\times\vecc]
+. 结合律: stem:[(\lambda\veca)\times\vecb=\veca\times(\lambda\vecb)=\lambda(\veca\times\vecb)]
+
+==== 向量积的坐标表示
+设 stem:[\veca=a_1\veci+a_2\vecj+a_3\veck=(a_1,a_2,a_3),\vecb=b_1\veci+b_2\vecj+b_3\veck=(b_1,b_2,b_3)]
+
+那么
+
+latexmath:[\vec{a}\times\vec{b}=\begin{vmatrix}
+\vec{i} & \vec{j} & \vec{k}\\
+a_1 & a_2 & a_3\\
+b_1 & b_2 & b_3
+\end{vmatrix}=\begin{vmatrix}
+a_2 & a_3\\
+b_2 & b_3
+\end{vmatrix}\vec{i}-\begin{vmatrix}
+a_1 & a_3\\
+b_1 & b_3
+\end{vmatrix}\vec{j}+\begin{vmatrix}
+\vec{a_1} & \vec{a_2}\\
+\vec{b_1} & \vec{b_2}
+\end{vmatrix}]
+
+stem:[=(a_2b_3-a_3b_2)\vec{i}-(a_1b_3-a_3b_1)\vec{j}+(a_1b_2-a_2b_1)\vec{k}]
+
+=== 向量间的关系
+==== 平行或垂直
+设向量 stem:[\veca=(a_x,a_y,a_z),\vecb=(b_x,b_y,b_z)]，其中，stem:[\lambda] 为实数，stem:[\theta] 为 stem:[\veca与\vecb] 的夹角，则
+
+* stem:[\veca////\vecb]
+** stem:[<=> \theta=0或\pi]
+** stem:[<=> \veca=\lambda\vecb]
+** stem:[<=> a_x/b_x=a_y/b_y=a_z/b_z]
+** stem:[<=> \veca\times\vecb=\vec0]
+* latexmath:[\vec{a}\perp\vec{b}]
+** stem:[<=> \theta=pi/2]
+** stem:[<=> \veca\cdot\vecb=0]
+** stem:[<=> a_xb_x+a_yb_y+a_zb_z=0]
+
+==== 投影
+stem:[\veca在\vecb] 上的投影，记作 stem:[\Prj_ba=|\veca|\cdot\cos\theta=\frac{\veca\cdot\vecb}{|\vecb|}](`Prj` 是 `Projection` 的缩写)
